@@ -119,9 +119,10 @@ margin-left: -2rem;
   text-align: center;
   font-family: "Zen Kurenaido", sans-serif;
 }
+
 .recipes{
   display: flex;
-  gap: 6rem;
+  gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 2rem;
@@ -129,88 +130,82 @@ margin-left: -2rem;
 padding-bottom: 5rem;
 
 }
-
-
-
-
-.recipe-table {
-
-  width: 65rem;
-  border-collapse: collapse;
-  margin-bottom: 1rem;
+.recipe {
+  background-color: #f9f9f9;
   border: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 600px;
+
+  margin: 20px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
 }
 
-.recipe-table th {
-  background-color: #f8f8f8;
-  padding: 1rem;
-  font-size: 1.5rem;
-  text-align: left;
+.recipe-title {
+  font-size: 2.4rem;
+  color: #36d599;
+  margin-bottom: 10px;
 }
 
-.recipe-table td {
-  padding: 1rem;
-  vertical-align: top;
+.recipe-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .recipe-image {
-width: 30rem;
+  max-width: 100%;
   border-radius: 8px;
-}
-
-.recipe-link {
-  display: inline-block;
-  margin: 0.5rem 0;
-  color: #007bff;
-  text-decoration: none;
-}
-
-.recipe-button {
-  padding: 0.5rem 1rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.recipe-button:hover {
-  background-color: #0056b3;
-}
-
-.ingredient-container {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-in-out;
-}
-
-.ingredient-container.show {
-  max-height: 5000px; /* Imposta un valore sufficiente per coprire il contenuto */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .ingredient-list {
-  margin-top: 1rem;
-  border-radius: 1rem;
-  padding: 1rem;
-  background-color: #222;
-}
-
-.ingredient-list li {
-  margin: 0.8rem 0;
+  background-color: #282c34;
+  color: #f0f0f0;
+  border-radius: 8px;
+  padding: 10px;
+  list-style-type: none;
+  margin: 0;
   font-size: 1.6rem;
-  color: #b0b0b0;
 }
-
 
 .ingredient-text {
-  color: #f0f0f0;
+  margin: 5px 0;
 }
 
-.ingredient-weight {
-  color: #36d599;
+.recipe-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  text-align: left;
   font-size: 1.4rem;
+  color: #333;
 }
+
+.recipe-link-container {
+  margin-top: 20px;
+}
+
+.recipe-link {
+  background-color: #36d599;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.recipe-link:hover {
+  background-color: #2e9651;
+}
+
 
 .landingImage {
   background-image: url("Food-Ingredients.jpg");
