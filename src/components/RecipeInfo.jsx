@@ -1,16 +1,35 @@
+import { v4 as uuidv4 } from "uuid";
 
-import {v4 as uuidv4} from 'uuid'
+import PropTypes from 'prop-types';
 
-const RecipeInfo = ({ingredients}) => {
-    return ingredients.map(ingredient=>{
-        return (
-          <ul key={uuidv4()} className="ingredient-list">
-            <li className="ingredient-text">{ingredient.text}</li>
-            {/* <li className="ingredient-weight">Weight {ingredient.weight} g</li> */}
+const RecipeInfo = ({ ingredients, show }) => {
+  return (
+    <tr>
+      <td colSpan="2">
+        <div className={`ingredient-container ${show ? "show" : ""}`}>
+          <ul className="ingredient-list">
+            {ingredients.map((ingredient) => (
+              <li key={uuidv4()} className="ingredient-text">
+                {ingredient.text}
+              </li>
+            ))}
           </ul>
-        );
-    })
-    
-}
+        </div>
+      </td>
+    </tr>
+  );
 
-export default RecipeInfo
+};
+
+RecipeInfo.propTypes = {
+  ingredients: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  show: PropTypes.bool.isRequired,
+};
+
+
+
+export default RecipeInfo;
