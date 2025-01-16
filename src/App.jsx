@@ -1,9 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import Axios from "axios";
 import logo from "./logorecipe.svg";
-import { v4 as uuidv4 } from "uuid";
-import Recipe from './components/Recipe';
 import Alert from "./components/Alert";
+import RecipeList from "./components/RecipeList";
 import "./App.css";
 
 function App() {
@@ -77,8 +76,7 @@ function App() {
           </form>
         </header>
         <article className="recipes">
-          {recipes.length > 0 &&
-            recipes.map((recipe) => <Recipe key={uuidv4()} recipe={recipe} />)}
+          <RecipeList recipes={recipes} />
         </article>
       </div>
       <div className="landingImage"></div>
@@ -88,3 +86,4 @@ function App() {
 }
 
 export default App;
+
