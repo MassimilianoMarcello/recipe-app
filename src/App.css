@@ -1,43 +1,10 @@
-/* .App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 10rem;
-  pointer-events: none;
-}
-
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
 
 @import url("https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 * {
-  /* font-family: "Source Sans Pro", sans-serif; */
-  font-family: "Lobster", cursive;
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -56,42 +23,81 @@ html {
   align-items: center;
   border: #d6d6d6 solid 0.1rem;
 }
+.logo-slogan{
+  font-family: "Lobster", cursive;
+  margin: 1rem 0 4rem 0;
+  font-size: 2.8rem;
+}
+
 p {
   font-size: 2rem;
-  letter-spacing: 0.38rem;
-  color: #40b48e;
-  margin-left: 0.5rem;
-  margin-top: -34px;
+  letter-spacing: 0.3rem;
+  color: #36d599;  /* Verde più brillante */
+  margin-top: -20px;
 }
 
 h1 {
-  font-size: 8rem;
-  letter-spacing: 0.1rem;
-  font-style: italic;
-  color: #40b48e;
-  text-shadow: 0 0.2rem 5rem rgb(119, 115, 115);
+  font-size: 7rem;
+  letter-spacing: 0.2rem;
+  font-weight: 700;
+  color: #36d599; /* Verde brillante */
+  text-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
-  margin: 4rem 0;
+  margin: 2rem 0;
 }
 
 .search-form {
-  width: 40rem;
-  height: 10rem;
+  width: 100%;
+  max-width: 40rem;
+margin-left: -2rem;
+  height: 6rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  background-color: #282c34;
-  border-radius: 2rem;
-  margin-top: 4rem;
-  margin-bottom: 5rem;
-  box-shadow: 1rem 2rem 5rem #282c34;
+  background-color: #181818;
+  border-radius: 50px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   position: relative;
-  border: #40b48e solid 0.1rem;
+  border: 2px solid #36d599;
 }
+
+.search-form input {
+  font-size: 1.6rem;
+  border: none;
+
+  background-color: #181818;
+  color: #fff;
+  border-radius: 25px;
+  padding: .5rem;
+  transition: all 0.3s ease;
+}
+
+.search-form input[type="text"]:focus {
+  outline: none;
+  border-color: #36d599;
+}
+
+.search-form input[type="submit"] {
+  font-size: 1.6rem;
+  background-color: #36d599;
+  color: #fff;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-form input[type="submit"]:hover {
+  background-color: #fff;
+  color: #36d599;
+  border: 2px solid #36d599;
+}
+
 
 .alert {
   position: absolute;
-  top: -3rem;
+  top: 12rem;
   left: 0;
   background-color: #f25234;
   width: calc(100% - 0.4rem);
@@ -111,35 +117,9 @@ h1 {
   font-family: "Zen Kurenaido", sans-serif;
 }
 
-.search-form input {
-  font-size: 2rem;
-  border: none;
-  border-bottom: 0.1rem solid #ccc;
-  margin: 0 0.9rem;
-  border-radius: 0.5rem;
-  height: 4rem;
-  background-color: #f7efe3;
-}
 
-.search-form input[type="text"] {
-  padding: 0 0.5rem;
-  width: 64%;
-  color: rgb(75, 54, 54);
-}
 
-.search-form input[type="submit"] {
-  width: 25%;
-  background-color: #40b48e;
-  color: #fff;
-  font-family: "Source Sans Pro", sans-serif;
-}
-.search-form input[type="submit"]:hover {
-  width: 25%;
-  background-color: #fff;
-  color: #40b48e;
-  font-family: "Source Sans Pro", sans-serif;
-  border: solid #40b48e;
-}
+
 
 .recipes {
   width: 90%;
@@ -152,84 +132,79 @@ h1 {
 
 .recipe {
   width: 30rem;
-  margin: 3rem;
+  margin: 2rem;
   display: flex;
   flex-direction: column;
-  background-color: #40b48e;
-  padding: 0.2rem;
+  background-color: #36d599;
+  padding: 1rem;
   position: relative;
-  border-radius: 0.5rem;
-  /* box-shadow: 0.05rem 0.25rem 0.5rem 
-#b1afaf; */
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .recipe h2 {
-  background-color: rgba(161, 161, 161, 0.7);
-  border-radius: 0.5rem;
-  padding: 0.3rem 0.5rem;
-  position: absolute;
-  top: 2.5rem;
-  left: 2.5rem;
-  right: 2.5rem;
   font-size: 2.5rem;
-  font-weight: 300;
-  text-shadow: 0 1.5rem 0.5rem #555;
-  color: rgba(255, 255, 255, 0.863);
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: -2rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 1rem;
 }
 
 .recipe img {
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   object-fit: cover;
+  width: 100%;
+  height: 200px;
 }
 
 .recipe a {
-  font-size: 2.4rem;
-  color: #f7f7f7b9;
+  font-size: 1.8rem;
+  color: #fff;
   padding-left: 1.5rem;
+  transition: color 0.3s ease;
 }
 
-.recipe button {
-  font-size: 2rem;
-  /* text-transform: uppercase; */
-  color: rgba(207, 205, 205, 0.904);
-  background-color: #40b48e;
-  border: none;
-  border-radius: 0.5rem;
-  height: 3rem;
-  font-family: "Source Sans Pro", sans-serif;
+.recipe a:hover {
+  color: #f7f7f7;
 }
+
 
 .ingredient-list {
   margin-top: 1rem;
-
-  border-radius: 0.5rem;
-  padding: 0.5rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #222;
 }
 
 .ingredient-list li {
-  margin: 0.5rem 0;
+  margin: 0.8rem 0;
+  font-size: 1.6rem;
+  color: #b0b0b0;
 }
 
 .ingredient-text {
-  font-size: 2rem;
-  color: rgb(199, 195, 195);
+  color: #f0f0f0;
 }
 
 .ingredient-weight {
-  color: #40b48e;
-  font-size: 1.3rem;
+  color: #36d599;
+  font-size: 1.4rem;
 }
+
 .landingImage {
   background-image: url("Food-Ingredients.jpg");
-  height: 500px;
+  height: 100vh;
   background-position: center;
-  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
-  border-left: #d6d6d6 solid 0.1rem;
-  border-right: #d6d6d6 solid 0.1rem;
-  border-top: #d6d6d6 solid 0.1rem;
-  border-bottom: #d6d6d6 solid 0.1rem;
+  border-radius: 0 0 3rem 3rem;
+  margin-top: -3rem;
 }
+
 .copyright {
   color: #f7efe3;
   font-family: "Source Sans Pro", sans-serif;
