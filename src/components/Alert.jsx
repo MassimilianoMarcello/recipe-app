@@ -1,19 +1,19 @@
-
-
 import PropTypes from 'prop-types';
 
-const Alert = ({alert}) => {
-    return (
-        <div className="alert">
-            <h3>{alert}</h3>
-            
-        </div>
+const Alert = ({ alert }) => {
+  return (
+    alert && (
+      <div className="alert">
+        <h3>{alert}</h3>
+      </div>
     )
+  );
 }
 
 Alert.propTypes = {
-    alert: PropTypes.string.isRequired,
+  alert: PropTypes.string.isRequired,
 };
 
-export default Alert
+export default Alert;
+
 

@@ -180,18 +180,14 @@ width: 30rem;
 }
 
 .ingredient-container {
-  overflow: hidden;
   max-height: 0;
-  transition: max-height 0.3s ease;
+  overflow: hidden;
+  transition: max-height 0.2s ease-in-out;
 }
 
 .ingredient-container.show {
-  max-height: 800px;
- 
+  max-height: 5000px; /* Imposta un valore sufficiente per coprire il contenuto */
 }
-
-
-
 
 .ingredient-list {
   margin-top: 1rem;
@@ -205,6 +201,7 @@ width: 30rem;
   font-size: 1.6rem;
   color: #b0b0b0;
 }
+
 
 .ingredient-text {
   color: #f0f0f0;

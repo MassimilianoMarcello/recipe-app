@@ -6,8 +6,6 @@ import Recipe from './components/Recipe';
 import Alert from "./components/Alert";
 import "./App.css";
 
-
-
 function App() {
   const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
@@ -20,42 +18,42 @@ function App() {
   // Debounce the query input
   useEffect(() => {
     const timer = setTimeout(() => {
-      setDebouncedQuery(query); // Update debounced query after delay
-    }, 500); // 500ms debounce delay
+      setDebouncedQuery(query);
+    }, 200);
 
-    return () => clearTimeout(timer); // Clear timeout on cleanup
+    return () => clearTimeout(timer);
   }, [query]);
 
   // Fetch data from API
   const getData = useCallback(async () => {
-    if (debouncedQuery !== "") {
-      const url = `https://api.edamam.com/search?q=${debouncedQuery}&app_id=${APP_ID}&app_key=${APP_KEY}`;
-      try {
-        const result = await Axios.get(url);
-        if (!result.data.more) {
-          setAlert("No food with such name");
-        } else {
-          setRecipes(result.data.hits);
-          setAlert("");
-        }
-      } catch (error) {
-        console.error(error);
-        setAlert("Error fetching data. Please try again later.");
-      }
-    } else {
+    if (!debouncedQuery) {
       setAlert("Please fill in the form");
+      return;
+    }
+
+    const url = `https://api.edamam.com/search?q=${debouncedQuery}&app_id=${APP_ID}&app_key=${APP_KEY}`;
+    
+    try {
+      const result = await Axios.get(url);
+      if (!result.data.more) {
+        setAlert("No food with such name");
+      } else {
+        setRecipes(result.data.hits);
+        setAlert("");
+      }
+    } catch (error) {
+      console.error(error);
+      setAlert("Error fetching data. Please try again later.");
     }
   }, [debouncedQuery, APP_ID, APP_KEY]);
 
   // Handle input change
-  const onChange = (e) => {
-    setQuery(e.target.value);
-  };
+  const onChange = (e) => setQuery(e.target.value);
 
   // Handle form submission
   const onSubmit = (e) => {
     e.preventDefault();
-    getData(); // Call getData only when the form is submitted
+    getData();
   };
 
   return (
@@ -67,7 +65,7 @@ function App() {
           </a>
           <p className="logo-slogan">Use to find your next meal!</p>
           <form className="search-form" onSubmit={onSubmit}>
-            {alert !== "" && <Alert alert={alert} />}
+            {alert && <Alert alert={alert} />}
             <input
               type="text"
               placeholder="Enter Ingredient"
