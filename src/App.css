@@ -1,42 +1,237 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* .App {
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.App-logo {
+  height: 10rem;
+  pointer-events: none;
 }
 
-@keyframes logo-spin {
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+} */
+
+@import url("https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+* {
+  /* font-family: "Source Sans Pro", sans-serif; */
+  font-family: "Lobster", cursive;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+  outline: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+html {
+  font-size: 62.5%;
+  background-color: #282c34;
 }
 
-.card {
-  padding: 2em;
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: #d6d6d6 solid 0.1rem;
+}
+p {
+  font-size: 2rem;
+  letter-spacing: 0.38rem;
+  color: #40b48e;
+  margin-left: 0.5rem;
+  margin-top: -34px;
 }
 
-.read-the-docs {
-  color: #888;
+h1 {
+  font-size: 8rem;
+  letter-spacing: 0.1rem;
+  font-style: italic;
+  color: #40b48e;
+  text-shadow: 0 0.2rem 5rem rgb(119, 115, 115);
+  text-transform: uppercase;
+  margin: 4rem 0;
+}
+
+.search-form {
+  width: 40rem;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #282c34;
+  border-radius: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 5rem;
+  box-shadow: 1rem 2rem 5rem #282c34;
+  position: relative;
+  border: #40b48e solid 0.1rem;
+}
+
+.alert {
+  position: absolute;
+  top: -3rem;
+  left: 0;
+  background-color: #f25234;
+  width: calc(100% - 0.4rem);
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+  border: solid 0.1rem #eb2806;
+}
+
+.alert h3 {
+  font-size: 1.8rem;
+  border: solid 0.1rem #f25234;
+  border-radius: 25%;
+  color: #fff;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "Zen Kurenaido", sans-serif;
+}
+
+.search-form input {
+  font-size: 2rem;
+  border: none;
+  border-bottom: 0.1rem solid #ccc;
+  margin: 0 0.9rem;
+  border-radius: 0.5rem;
+  height: 4rem;
+  background-color: #f7efe3;
+}
+
+.search-form input[type="text"] {
+  padding: 0 0.5rem;
+  width: 64%;
+  color: rgb(75, 54, 54);
+}
+
+.search-form input[type="submit"] {
+  width: 25%;
+  background-color: #40b48e;
+  color: #fff;
+  font-family: "Source Sans Pro", sans-serif;
+}
+.search-form input[type="submit"]:hover {
+  width: 25%;
+  background-color: #fff;
+  color: #40b48e;
+  font-family: "Source Sans Pro", sans-serif;
+  border: solid #40b48e;
+}
+
+.recipes {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.recipe {
+  width: 30rem;
+  margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #40b48e;
+  padding: 0.2rem;
+  position: relative;
+  border-radius: 0.5rem;
+  /* box-shadow: 0.05rem 0.25rem 0.5rem 
+#b1afaf; */
+}
+
+.recipe h2 {
+  background-color: rgba(161, 161, 161, 0.7);
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  position: absolute;
+  top: 2.5rem;
+  left: 2.5rem;
+  right: 2.5rem;
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-shadow: 0 1.5rem 0.5rem #555;
+  color: rgba(255, 255, 255, 0.863);
+}
+
+.recipe img {
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.recipe a {
+  font-size: 2.4rem;
+  color: #f7f7f7b9;
+  padding-left: 1.5rem;
+}
+
+.recipe button {
+  font-size: 2rem;
+  /* text-transform: uppercase; */
+  color: rgba(207, 205, 205, 0.904);
+  background-color: #40b48e;
+  border: none;
+  border-radius: 0.5rem;
+  height: 3rem;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.ingredient-list {
+  margin-top: 1rem;
+
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.ingredient-list li {
+  margin: 0.5rem 0;
+}
+
+.ingredient-text {
+  font-size: 2rem;
+  color: rgb(199, 195, 195);
+}
+
+.ingredient-weight {
+  color: #40b48e;
+  font-size: 1.3rem;
+}
+.landingImage {
+  background-image: url("Food-Ingredients.jpg");
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-left: #d6d6d6 solid 0.1rem;
+  border-right: #d6d6d6 solid 0.1rem;
+  border-top: #d6d6d6 solid 0.1rem;
+  border-bottom: #d6d6d6 solid 0.1rem;
+}
+.copyright {
+  color: #f7efe3;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: medium;
 }
