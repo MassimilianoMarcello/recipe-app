@@ -2,7 +2,6 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 const RecipeList = ({ recipes }) => {
-  console.log(recipes); // Verifica cosa viene passato al componente
   const [selectedRecipe, setSelectedRecipe] = useState(null);
 
   const handleViewDetails = (recipe) => {
@@ -10,39 +9,43 @@ const RecipeList = ({ recipes }) => {
   };
 
   const handleCloseDetails = () => {
-    setSelectedRecipe(null); // Chiudiamo l'overlay quando si clicca su "X"
+    setSelectedRecipe(null); // Chiudiamo l'overlay
   };
 
   return (
     <div className="recipe-list">
-      {recipes.map((recipe, index) => (
-        <div key={index} className="recipe-card">
-          <h3 className="recipe-title">{recipe.recipe.label}</h3>
-          <img
-            src={recipe.recipe.image}
-            alt={recipe.recipe.label}
-            className="recipe-thumbnail"
-          />
-          <div className="card-buttons">
-            <button
-              onClick={() => handleViewDetails(recipe)} // Mostra i dettagli
-              className="view-details-button"
-            >
-              View Details
-            </button>
-            <button
-  className="view-details-button"
-  onClick={() => window.open(recipe.recipe.url, "_blank")}
->
-  Go to Recipe
-</button>
+      {recipes.length > 0 ? (
+        recipes.map((recipe, index) => (
+          <div key={index} className="recipe-card">
+            <h3 className="recipe-title">{recipe.recipe.label}</h3>
+            <img
+              src={recipe.recipe.image}
+              alt={recipe.recipe.label}
+              className="recipe-thumbnail"
+            />
+            <div className="card-buttons">
+              <button
+                onClick={() => handleViewDetails(recipe)} // Mostra i dettagli
+                className="view-details-button"
+              >
+                View Details
+              </button>
+              <button
+                className="view-details-button"
+                onClick={() => window.open(recipe.recipe.url, "_blank")}
+              >
+                Go to Recipe
+              </button>
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      ) : (
+        <p className="no-results">No recipes found</p> // Mostrato solo dopo la ricerca
+      )}
 
       {/* Mostriamo l'overlay solo quando selectedRecipe non è null */}
       {selectedRecipe && (
-        <div className={`details-overlay ${selectedRecipe ? 'open' : ''}`}>
+        <div className={`details-overlay ${selectedRecipe ? "open" : ""}`}>
           <div className="recipe-details-container">
             {selectedRecipe.recipe ? (
               <>
@@ -67,24 +70,32 @@ const RecipeList = ({ recipes }) => {
                 <div className="recipe-details">
                   <div className="recipe-info">
                     <p className="info-item">
-                      <strong>Time:</strong> 
-                      {selectedRecipe.recipe.totalTime ? `${selectedRecipe.recipe.totalTime} min` : "N/A"}
+                      <strong>Time:</strong>
+                      {selectedRecipe.recipe.totalTime
+                        ? `${selectedRecipe.recipe.totalTime} min`
+                        : "N/A"}
                     </p>
                     <p className="info-item">
-                      <strong>Calories:</strong> 
+                      <strong>Calories:</strong>
                       {Math.round(selectedRecipe.recipe.calories)} kcal
                     </p>
                     <p className="info-item">
-                      <strong>Cuisine:</strong> 
-                      {selectedRecipe.recipe.cuisineType ? selectedRecipe.recipe.cuisineType.join(", ") : "N/A"}
+                      <strong>Cuisine:</strong>
+                      {selectedRecipe.recipe.cuisineType
+                        ? selectedRecipe.recipe.cuisineType.join(", ")
+                        : "N/A"}
                     </p>
                     <p className="info-item">
-                      <strong>Meal Type:</strong> 
-                      {selectedRecipe.recipe.mealType ? selectedRecipe.recipe.mealType.join(", ") : "N/A"}
+                      <strong>Meal Type:</strong>
+                      {selectedRecipe.recipe.mealType
+                        ? selectedRecipe.recipe.mealType.join(", ")
+                        : "N/A"}
                     </p>
                     <p className="info-item">
-                      <strong>Diet:</strong> 
-                      {selectedRecipe.recipe.dietLabels ? selectedRecipe.recipe.dietLabels.join(", ") : "N/A"}
+                      <strong>Diet:</strong>
+                      {selectedRecipe.recipe.dietLabels
+                        ? selectedRecipe.recipe.dietLabels.join(", ")
+                        : "N/A"}
                     </p>
                   </div>
                   <a
@@ -98,7 +109,7 @@ const RecipeList = ({ recipes }) => {
                 </div>
               </>
             ) : (
-              <p>Loading...</p> // Mostra un messaggio di caricamento se la ricetta non è disponibile
+              <p>Loading...</p>
             )}
           </div>
         </div>
@@ -127,6 +138,8 @@ RecipeList.propTypes = {
 };
 
 export default RecipeList;
+
+
 
 
 
