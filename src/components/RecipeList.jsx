@@ -23,12 +23,26 @@ const RecipeList = ({ recipes }) => {
             alt={recipe.recipe.label}
             className="recipe-thumbnail"
           />
+          <div className="card-buttons">
           <button
             onClick={() => handleViewDetails(recipe)} // Mostra i dettagli
             className="view-details-button"
           >
             View Details
           </button>
+          <button>
+          <a
+    className="recipe-link"
+    href={recipe.recipe.url}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Go to Recipe
+  </a>
+          </button>
+ 
+          </div>
+         
         </div>
       ))}
 
@@ -51,45 +65,44 @@ const RecipeList = ({ recipes }) => {
                   className="recipe-image"
                 />
                 <ul>
+                    <p>Ingredients:</p>
                   {selectedRecipe.recipe.ingredients.map((ingredient, index) => (
                     <li key={index}>{ingredient.text}</li>
                   ))}
                 </ul>
-                <p>
-                  <strong>Time:</strong>{" "}
-                  {selectedRecipe.recipe.totalTime
-                    ? `${selectedRecipe.recipe.totalTime} min`
-                    : "N/A"}
-                </p>
-                <p>
-                  <strong>Calories:</strong>{" "}
-                  {Math.round(selectedRecipe.recipe.calories)} kcal
-                </p>
-                <p>
-                  <strong>Cuisine:</strong>{" "}
-                  {selectedRecipe.recipe.cuisineType
-                    ? selectedRecipe.recipe.cuisineType.join(", ")
-                    : "N/A"}
-                </p>
-                <p>
-                  <strong>Meal Type:</strong>{" "}
-                  {selectedRecipe.recipe.mealType
-                    ? selectedRecipe.recipe.mealType.join(", ")
-                    : "N/A"}
-                </p>
-                <p>
-                  <strong>Diet:</strong>{" "}
-                  {selectedRecipe.recipe.dietLabels
-                    ? selectedRecipe.recipe.dietLabels.join(", ")
-                    : "N/A"}
-                </p>
-                <a
-                  href={selectedRecipe.recipe.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Go to Recipe
-                </a>
+                <div className="recipe-details">
+  <div className="recipe-info">
+    <p className="info-item">
+      <strong>Time:</strong> 
+      {selectedRecipe.recipe.totalTime ? `${selectedRecipe.recipe.totalTime} min` : "N/A"}
+    </p>
+    <p className="info-item">
+      <strong>Calories:</strong> 
+      {Math.round(selectedRecipe.recipe.calories)} kcal
+    </p>
+    <p className="info-item">
+      <strong>Cuisine:</strong> 
+      {selectedRecipe.recipe.cuisineType ? selectedRecipe.recipe.cuisineType.join(", ") : "N/A"}
+    </p>
+    <p className="info-item">
+      <strong>Meal Type:</strong> 
+      {selectedRecipe.recipe.mealType ? selectedRecipe.recipe.mealType.join(", ") : "N/A"}
+    </p>
+    <p className="info-item">
+      <strong>Diet:</strong> 
+      {selectedRecipe.recipe.dietLabels ? selectedRecipe.recipe.dietLabels.join(", ") : "N/A"}
+    </p>
+  </div>
+  <a
+    className="recipe-link"
+    href={selectedRecipe.recipe.url}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Go to Recipe
+  </a>
+</div>
+
               </>
             ) : (
               <p>Loading...</p> // Mostra un messaggio di caricamento se la ricetta non è disponibile
