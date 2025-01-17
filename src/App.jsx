@@ -10,6 +10,7 @@ function App() {
   const [recipes, setRecipes] = useState([]);
   const [alert, setAlert] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
+  const [imageVisible, setImageVisible] = useState(false);
 
   const APP_ID = import.meta.env.VITE_EDAMAM_API_ID;
   const APP_KEY = import.meta.env.VITE_EDAMAM_API_KEY;
@@ -55,6 +56,14 @@ function App() {
     getData();
   };
 
+  // Show landing image after loading
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setImageVisible(true);
+    }, 1000); // Adjust the delay as needed
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <div className="App">
@@ -79,11 +88,12 @@ function App() {
           <RecipeList recipes={recipes} />
         </article>
       </div>
-      <div className="landingImage"></div>
+      <div className={`landingImage ${imageVisible ? "visible" : ""}`}></div>
       <div className="copyright">MassDev©2021</div>
     </>
   );
 }
 
 export default App;
+
 

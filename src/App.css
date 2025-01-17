@@ -19,7 +19,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-padding-bottom: 40rem;
+padding-bottom: 0rem;
   border: #36d599 solid 2px;
 }
 
@@ -297,6 +297,15 @@ li {
   border-radius: 0 0 3rem 3rem;
   margin-top: -3rem;
 }
+.landingImage {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.landingImage.visible {
+  opacity: 1;
+}
+
 
 .copyright {
   color: #f7efe3;
