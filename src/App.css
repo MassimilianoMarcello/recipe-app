@@ -1,5 +1,3 @@
-
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
@@ -21,7 +19,8 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: #d6d6d6 solid 0.1rem;
+padding-bottom: 40rem;
+  border: #36d599 solid 2px;
 }
 
 .logo-slogan {
@@ -91,55 +90,61 @@ p {
 }
 
 .recipes {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 2rem;
-  margin-left: -30rem;
-  padding-bottom: 5rem;
+margin: 2rem 0;
+padding-bottom: 5rem;
+border-top: #36d599 solid 2px;
 }
+
+
+  
 
 /* Stile per la lista delle ricette */
 .recipe-list {
+  margin-top: 5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 6rem;
-  margin: 20px;
+  /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
+  grid-template-columns: repeat(4,1fr);
+  gap: 2rem;
+
+
+  width: auto;
 }
 
 .recipe-card {
   background-color: #f9f9f9;
-  min-width: 30rem;
-  margin:0 18rem;
+  min-width: 20rem;
+  margin:0 2rem;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  /* text-align: center; */
 }
-.card-buttons{
-  display: flex;
-  justify-content:flex-start;
-  align-items: center;
-  /* gap: 1rem; */
 
+.card-buttons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .recipe-thumbnail {
   width: 100%;
-  height: auto;
+  height: 25rem;
   border-radius: 8px;
+
+
+
 }
 
 .view-details-button {
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 5px 20px;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
+  margin:20px 10px 0 10px;
   transition: background-color 0.3s ease;
+  font-size: 1.08rem;
 }
 
 .view-details-button:hover {
@@ -158,11 +163,9 @@ p {
   justify-content: center;
   align-items: center;
   z-index: 1000;
-
 }
 
 .details-overlay.open {
-  
   display: flex; /* Mostra quando è aperto */
 }
 
@@ -176,37 +179,46 @@ p {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   overflow-y: auto;
 }
+.recipe-title{
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+text-align: center;
+ 
+}
 
 .recipe-image {
   width: 90%;
   height: 20rem;
-padding: 2rem;
+  padding: 2rem;
   border-radius: 8px;
 }
 
 .close-button {
-  position: absolute;
-  top: 15rem;
-  right: 42rem;
+  position: fixed;
+  top: 1rem;
+  right: 38rem;
   background-color: #ff4d4d;
   color: white;
   border: none;
-  padding:8px 14px;
-  border-radius: 50%;
+  padding: 4px 10px;
+  /* border-radius: 50%; */
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
   transition: background-color 0.3s ease;
 }
 
 .close-button:hover {
   background-color: #e60000;
 }
-
+/* title */
 h2 {
   margin-top: 20px;
+  margin-left: 4rem;
   font-size: 24px;
   font-weight: bold;
   padding: 2rem;
+  align-items: center;
 }
 
 p {
@@ -223,9 +235,7 @@ ul {
 li {
   font-size: 16px;
   margin: 5px 0;
- 
 }
-
 
 /* recipe details */
 
@@ -270,7 +280,6 @@ li {
   background-color: #0056b3;
 }
 
-
 /* Stile per il messaggio di caricamento */
 .loading-message {
   text-align: center;
@@ -278,29 +287,7 @@ li {
   color: #888;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Immagine di landing */
 .landingImage {
   background-image: url("Food-Ingredients.jpg");
   height: 100vh;
@@ -319,3 +306,4 @@ li {
   align-items: center;
   justify-content: center;
 }
+
